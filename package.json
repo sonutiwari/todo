@@ -1,0 +1,32 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "An Express TODO App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sonutiwari/todo.git"
+  },
+  "keywords": [
+    "Express",
+    "TODO",
+    "git",
+    "Mongodb",
+    "Node",
+    "Route"
+  ],
+  "author": "Sonu Tiwari",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sonutiwari/todo/issues"
+  },
+  "homepage": "https://github.com/sonutiwari/todo#readme",
+  "dependencies": {
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.2"
+  }
+}
