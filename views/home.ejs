@@ -4,8 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %> </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Spartan:400,600,700,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <h1>Hello World! We are here</h1>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <h1 class="text-center">TODO App</h1>
+                <hr>
+                <form action="/add_todo" method="get">
+                    <label for="task_desc">Description</label><br>
+                    <div class="form-row">
+                        <textarea placeholder="Enter your task description here." class="col" name="task_desc" id="task_desc" rows="2"></textarea>
+                    </div>
+                    <br>
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="tag">Category</label><br>
+                            <select class="col" name="tag" id="tag">
+                                <option value="">Choose a Category</option>
+                                <option value="Personal">Personal</option>
+                                <option value="Work">Work</option>
+                                <option value="School">School</option>
+                                <option value="Home">Home</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="due_date">Due Date</label><br>
+                            <input type="date" name="due_date" id="due_date">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-row">
+                        <button type="submit" class="btn btn-success" id="add_task_btn"> <i class="fa fa-plus"></i> Add Task</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-10">
+                <ul>
+                    <% for (list of data) { %>
+                        <li>
+                            <div class="row">
+                                <div class="col-2">
+                                    <p class="red">
+                                        <%= list.tag %> 
+                                    </p> 
+                                </div>
+                                <div class="col-8">
+                                    <p>
+                                        <%= list.task_desc %> 
+                                    </p>
+                                    <p>
+                                        <%= list.due_date %> 
+                                    </p>
+                                </div>
+                                <div class="col-2">
+                                    <a href="/delete_task/?task_desc=<%= list.task_desc %>&tag=<%= list.tag %>&due_date=<%= list.due_date %>">
+                                        <button class="btn btn-danger">Delete</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </li> 
+                    <% } %> 
+                </ul>
+            </div>
+            <div class="col-1"></div>
+        </div>
+    </div>
+    <script src="./js/script.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
